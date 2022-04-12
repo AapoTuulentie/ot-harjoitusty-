@@ -1,1 +1,3 @@
-Viikko 3
+Viikko 4
+
+- Perusvaihe ei valmis
