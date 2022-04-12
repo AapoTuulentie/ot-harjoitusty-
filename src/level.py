@@ -10,3 +10,7 @@ class Level:
         self.food = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
         
+
+    def spawn_food(self):
+
+        
