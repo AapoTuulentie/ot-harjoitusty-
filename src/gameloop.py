@@ -19,12 +19,18 @@ class GameLoop:
             
             if self._player_inputs() is False:
                 break
+
+            if self.check_collisions is True:
+                break
             
             pygame.display.update()
-            self._clock.tick(20)
             self._display.fill((0, 0, 0))
-            self._level.spawn_food()
-            self._level.render()
+
+            if self._level.snake_head == self._level.snake_food:
+                self._level.spawn_food()
+
+            self._clock.tick(20)
+            self.level.render()
 
             
     
@@ -82,8 +88,20 @@ class GameLoop:
         self._level.snake_head = [x, y]
 
 
+    def check_collisions(self):
+
+        if self._level.snake_head[0] > 720 - self._level.block or self._level.snake_head[1] > 480 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
+            return True
+        
+        if self._level.snake_head in self._level.snake_body[1:]:
+            return True
+
+        return False
+
+
     def _player_inputs(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return False
         return True
+
