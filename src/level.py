@@ -34,8 +34,8 @@ class Level:
 
     def check_food(self):
 
-        if self._level.snake_head == self._level.food:
-                self._level.spawn_food()
+        if self.snake_head == self.food:
+                self.spawn_food()
 
         else:
             self.snake_body.pop()
