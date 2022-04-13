@@ -17,6 +17,9 @@ class GameLoop:
             if self._events == False:
                 break
 
+            if self._player_inputs() is False:
+                break
+
             self._clock.tick(20)
 
             
@@ -73,3 +76,10 @@ class GameLoop:
             x += self._level.block
 
         self._level.snake_head = [x, y]
+
+
+    def _player_inputs(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return False
+        return True
