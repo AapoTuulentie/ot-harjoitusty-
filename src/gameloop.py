@@ -28,6 +28,7 @@ class GameLoop:
 
             self._clock.tick(20)
             self._level.render()
+            self._events()
 
             
     
