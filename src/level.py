@@ -7,11 +7,10 @@ class Level:
     def __init__(self, display):
 
         self.snake_head = [720/2, 480/2]
-        self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
         self._display = display
         self.block = 20
-
+        self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
 
     def _spawn_food(self):   
         
