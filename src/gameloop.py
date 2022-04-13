@@ -30,7 +30,7 @@ class GameLoop:
                 self._level.spawn_food()
 
             self._clock.tick(20)
-            self.level.render()
+            self._level.render()
 
             
     
