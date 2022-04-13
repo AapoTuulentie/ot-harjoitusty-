@@ -11,7 +11,7 @@ def main():
     pygame.display.set_caption("Snake game")
     pygame.display.update()
 
-    level = Level()
+    level = Level(display)
     gameloop = GameLoop(display, level)
 
     pygame.init()
