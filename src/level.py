@@ -32,6 +32,14 @@ class Level:
 
         pygame.display.update()
 
+    def check_food(self):
+
+        if self._level.snake_head == self._level.food:
+                self._level.spawn_food()
+
+        else:
+            self.snake_body.pop()
+
 
     
 

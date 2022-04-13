@@ -7,7 +7,7 @@ class GameLoop:
         self._display = display
         self._clock = pygame.time.Clock()
         self._level = level
-        self.direction = "right"
+        self.direction = "RIGHT"
 
 
     def start(self):
@@ -25,9 +25,6 @@ class GameLoop:
             
             pygame.display.update()
             self._display.fill((0, 0, 0))
-
-            if self._level.snake_head == self._level.food:
-                self._level.spawn_food()
 
             self._clock.tick(20)
             self._level.render()
