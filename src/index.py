@@ -9,7 +9,7 @@ def main():
     display_size_y = 480
     display = pygame.display.set_mode((display_size_x, display_size_y))
     pygame.display.set_caption("Snake game")
-    pygame.display.update()
+    
 
     level = Level(display)
     gameloop = GameLoop(display, level)
