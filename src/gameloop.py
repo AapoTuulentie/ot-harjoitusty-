@@ -23,6 +23,7 @@ class GameLoop:
             pygame.display.update()
             self._clock.tick(20)
             self._display.fill((0, 0, 0))
+            self._level.spawn_food()
             self._level.render()
 
             
