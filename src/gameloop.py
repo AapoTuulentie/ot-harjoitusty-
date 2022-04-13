@@ -17,8 +17,8 @@ class GameLoop:
             if self._events == False:
                 break
 
-            self.clock.tick(20)
-            
+            self._clock.tick(20)
+
             
     
     def _events(self):
