@@ -16,11 +16,14 @@ class GameLoop:
 
             if self._events == False:
                 break
-
+            
             if self._player_inputs() is False:
                 break
-
+            
+            pygame.display.update()
             self._clock.tick(20)
+            self._display.fill((0, 0, 0))
+            self._level.render()
 
             
     
