@@ -58,7 +58,7 @@ class GameLoop:
 
                     self.direction = "LEFT"
 
-        self.move_snake(self.direction)
+        self.move_snake()
         self._level.snake_body.insert(0, self._level.snake_head)
 
 
