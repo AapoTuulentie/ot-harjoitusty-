@@ -61,6 +61,12 @@ class GameLoop:
         self.move_snake()
         self._level.snake_body.insert(0, self._level.snake_head)
 
+        if self.check_collisions is True:
+            pygame.quit()
+            quit()
+
+        self._level.check_food()
+
 
     def move_snake(self):
 
