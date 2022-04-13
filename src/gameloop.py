@@ -26,7 +26,7 @@ class GameLoop:
             pygame.display.update()
             self._display.fill((0, 0, 0))
 
-            if self._level.snake_head == self._level.snake_food:
+            if self._level.snake_head == self._level.food:
                 self._level.spawn_food()
 
             self._clock.tick(20)
