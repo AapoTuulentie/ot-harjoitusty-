@@ -23,7 +23,7 @@ class Level:
 
     def render(self):
 
-        for block in self.snake:
+        for block in self.snake_body:
 
             pygame.draw.rect(self._display, (0,201,87), pygame.Rect(block[0], block[1], self.block, self.block))
 
