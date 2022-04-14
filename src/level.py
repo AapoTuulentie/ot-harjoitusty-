@@ -6,7 +6,7 @@ class Level:
 
     def __init__(self, display):
 
-        self.snake_head = [720/2, 480/2]
+        self.snake_head = [800/2, 600/2]
         self._display = display
         self.block = 20
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
@@ -15,8 +15,8 @@ class Level:
 
     def spawn_food(self):   
         
-        x = randint(0, (720 - self.block) // self.block) * self.block
-        y = randint(0, (480 - self.block) // self.block) * self.block
+        x = randint(0, (800 - self.block) // self.block) * self.block
+        y = randint(0, (600 - self.block) // self.block) * self.block
         self.food = [x, y]
         if self.food in self.snake_body:
             self.spawn_food()
