@@ -17,18 +17,18 @@ class GameLoop:
             pygame.display.update()
             self._display.fill((0, 0, 0))
 
-            self._clock.tick(20)
-            self._level.render()
-            self._events()
-
-            if self._events == False:
+            if self._events() == False:
                 break
             
             if self._player_inputs() is False:
                 break
 
-            if self.check_collisions is True:
+            if self.check_collisions() is True:
                 break
+
+            self._clock.tick(20)
+            self._level.render()
+            self._events()
     
     def _events(self):
 
