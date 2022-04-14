@@ -1,5 +1,5 @@
-##### Viikko 4
+### Viikko 4
 
 - Pelin perustoiminnallisuus lähes valmis
 
-##### Viikko 5
+### Viikko 5
