@@ -26,7 +26,7 @@ class GameLoop:
             if self._level.check_collisions() is True:
                 break
 
-            self._clock.tick(20)
+            self._clock.tick(30)
             self._level.render()
             self.events()
     

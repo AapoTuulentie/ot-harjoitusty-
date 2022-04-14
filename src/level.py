@@ -8,7 +8,7 @@ class Level:
 
         self.snake_head = [1400/2, 1200/2]
         self._display = display
-        self.block = 20
+        self.block = 5
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
         self.spawn_food()
