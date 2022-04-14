@@ -81,11 +81,8 @@ class GameLoop:
         elif self.direction == "LEFT":
 
             x -= self._level.block
-
-        x += self.velocity
-        y += self.velocity
         
-        # self._level.snake_head = [x, y]
+        self._level.snake_head = [x, y]
 
 
     
