@@ -32,7 +32,7 @@ class Level:
 
         pygame.draw.rect(self._display, (220,20,60), pygame.Rect(self.food[0], self.food[1], self.block, self.block))
 
-        font = pygame.font.Font('EightBitDragon-anqx.ttf', 20)
+        font = font = pygame.font.SysFont('arial', 25)
         text = font.render(f"Pisteet: {self.score}", True, (240,255,255))
         self._display.blit(text, [0, 0])
 
