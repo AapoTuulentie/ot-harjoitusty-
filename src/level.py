@@ -6,7 +6,7 @@ class Level:
 
     def __init__(self, display):
 
-        self.snake_head = [1000/2, 800/2]
+        self.snake_head = [1400/2, 1200/2]
         self._display = display
         self.block = 20
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
@@ -16,8 +16,8 @@ class Level:
 
     def spawn_food(self):   
         
-        x = randint(0, (1000 - self.block) // self.block) * self.block
-        y = randint(0, (800 - self.block) // self.block) * self.block
+        x = randint(0, (1400 - self.block) // self.block) * self.block
+        y = randint(0, (1200 - self.block) // self.block) * self.block
         self.food = [x, y]
         if self.food in self.snake_body:
             self.spawn_food()
@@ -45,7 +45,7 @@ class Level:
 
     def check_collisions(self):
 
-        if self._level.snake_head[0] > 1000 - self._level.block or self._level.snake_head[1] > 800 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
+        if self._level.snake_head[0] > 1400 - self._level.block or self._level.snake_head[1] > 1200 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
             return True
         
         if self._level.snake_head in self._level.snake_body[1:]:
