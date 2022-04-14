@@ -20,7 +20,7 @@ class GameLoop:
             pygame.display.update()
             self._display.fill((0, 0, 0))
 
-            if self._events() is False:
+            if self.events() is False:
                 break
 
             if self._level.check_collisions() is True:
