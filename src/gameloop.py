@@ -38,19 +38,19 @@ class GameLoop:
 
             elif event.type == pygame.KEYDOWN:
 
-                if event.key == pygame.K_UP or event.key == ord("w"):
+                if event.key == pygame.K_UP or event.key == ord("w") and self.direction != "UP":
 
                     self.direction = "UP"
 
-                elif event.key == pygame.K_DOWN or event.key == ord("s"):
+                elif event.key == pygame.K_DOWN or event.key == ord("s") and self.direction != "DOWN":
 
                     self.direction = "DOWN"
 
-                elif event.key == pygame.K_RIGHT or event.key == ord("d"):
+                elif event.key == pygame.K_RIGHT or event.key == ord("d") and self.direction != "RIGHT":
 
                     self.direction = "RIGHT"
 
-                elif event.key == pygame.K_LEFT or event.key == ord("a"):
+                elif event.key == pygame.K_LEFT or event.key == ord("a") and self.direction != "LEFT":
 
                     self.direction = "LEFT"
 
