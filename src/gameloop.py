@@ -29,11 +29,9 @@ class GameLoop:
     
     def events(self):
 
-        
+        previous_direction = self.direction
 
         for event in pygame.event.get():
-
-            previous_direction = self.direction
 
             if event.type == pygame.QUIT:
 
