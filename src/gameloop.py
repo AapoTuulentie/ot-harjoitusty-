@@ -28,7 +28,6 @@ class GameLoop:
                 break
 
             self._clock.tick(self.fps)
-            self.events()
             self._level.render()
             
     

@@ -12,6 +12,7 @@ class Level:
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
         self.score = 0
+        self.spawn_food()
 
 
     def spawn_food(self):   
