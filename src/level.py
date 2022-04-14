@@ -6,18 +6,18 @@ class Level:
 
     def __init__(self, display):
 
-        self.snake_head = [1200/2, 1000/2]
+        self.snake_head = [800/2, 800/2]
         self._display = display
         self.block = 20
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
-        self.spawn_food()
+        self.score = 0
 
 
     def spawn_food(self):   
         
-        x = randint(0, (1200 - self.block) // self.block) * self.block
-        y = randint(0, (1000 - self.block) // self.block) * self.block
+        x = randint(0, (800 - self.block) // self.block) * self.block
+        y = randint(0, (800 - self.block) // self.block) * self.block
         self.food = [x, y]
         if self.food in self.snake_body:
             self.spawn_food()
@@ -31,6 +31,10 @@ class Level:
 
         pygame.draw.rect(self._display, (220,20,60), pygame.Rect(self.food[0], self.food[1], self.block, self.block))
 
+        font = pygame.font.Font("EightBitDragon-anqx.ttf", 20)
+        text = font.render(f"Pisteet: {self.score}", True, (240,255,255))
+        self._display.blit(text, [0, 0])
+
         pygame.display.update()
 
 
@@ -38,6 +42,7 @@ class Level:
 
         self.snake_body.insert(0, self.snake_head)
         if self.snake_head == self.food:
+                self.score += 1
                 self.spawn_food()
 
         else:
@@ -46,7 +51,7 @@ class Level:
 
     def check_collisions(self):
 
-        if self.snake_head[0] > 1200 - self.block or self.snake_head[1] > 1000 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:
+        if self.snake_head[0] > 800 - self.block or self.snake_head[1] > 800 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:
             return True
         
         if self.snake_head in self.snake_body[1:]:
