@@ -45,10 +45,10 @@ class Level:
 
     def check_collisions(self):
 
-        if self._level.snake_head[0] > 1400 - self._level.block or self._level.snake_head[1] > 1200 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
+        if self.snake_head[0] > 1400 - self.block or self.snake_head[1] > 1200 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:
             return True
         
-        if self._level.snake_head in self._level.snake_body[1:]:
+        if self.snake_head in self.snake_body[1:]:
             return True
 
         return False
