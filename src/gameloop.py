@@ -10,7 +10,6 @@ class GameLoop:
         self._level = level
         self.direction = "RIGHT"
 
-
     def start(self):
 
         while True:
@@ -30,9 +29,11 @@ class GameLoop:
     
     def events(self):
 
-        new_direction = self.direction
+        
 
         for event in pygame.event.get():
+
+            previous_direction = self.direction
 
             if event.type == pygame.QUIT:
 
@@ -40,33 +41,22 @@ class GameLoop:
 
             elif event.type == pygame.KEYDOWN:
 
-                if event.key == pygame.K_UP or event.key == ord("w"):
+                if event.key == pygame.K_UP or event.key == ord("w") and previous_direction != "DOWN":
 
-                    new_direction = "UP"
+                    self.direction = "UP"
 
-                elif event.key == pygame.K_DOWN or event.key == ord("s"):
+                elif event.key == pygame.K_DOWN or event.key == ord("s") and previous_direction != "UP":
 
-                    new_direction = "DOWN"
+                    self.direction = "DOWN"
 
-                elif event.key == pygame.K_RIGHT or event.key == ord("d"):
+                elif event.key == pygame.K_RIGHT or event.key == ord("d") and previous_direction != "LEFT":
 
-                    new_direction = "RIGHT"
+                    self.direction = "RIGHT"
 
-                elif event.key == pygame.K_LEFT or event.key == ord("a"):
+                elif event.key == pygame.K_LEFT or event.key == ord("a") and previous_direction != "RIGHT":
 
-                    new_direction = "LEFT"
+                    self.direction = "LEFT"
 
-        if new_direction == "UP" and self.direction != "DOWN":
-            self.direction == "UP"
-
-        if new_direction == "DOWN" and self.direction != "UP":
-            self.direction == "DOWN"
-
-        if new_direction == "RIGHT" and self.direction != "LEFT":
-            self.direction == "RIGHT"
-
-        if new_direction == "LEFT" and self.direction != "RIGHT":
-            self.direction == "LEFT"
 
         self.move_snake()
         self._level.check_food()
