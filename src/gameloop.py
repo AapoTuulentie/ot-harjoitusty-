@@ -30,6 +30,8 @@ class GameLoop:
     
     def events(self):
 
+        new_direction = self.direction
+
         for event in pygame.event.get():
 
             if event.type == pygame.QUIT:
@@ -38,21 +40,33 @@ class GameLoop:
 
             elif event.type == pygame.KEYDOWN:
 
-                if event.key == pygame.K_UP or event.key == ord("w") and self.direction != "DOWN":
+                if event.key == pygame.K_UP or event.key == ord("w"):
 
-                    self.direction = "UP"
+                    new_direction = "UP"
 
-                elif event.key == pygame.K_DOWN or event.key == ord("s") and self.direction != "UP":
+                elif event.key == pygame.K_DOWN or event.key == ord("s"):
 
-                    self.direction = "DOWN"
+                    new_direction = "DOWN"
 
-                elif event.key == pygame.K_RIGHT or event.key == ord("d") and self.direction != "LEFT":
+                elif event.key == pygame.K_RIGHT or event.key == ord("d"):
 
-                    self.direction = "RIGHT"
+                    new_direction = "RIGHT"
 
-                elif event.key == pygame.K_LEFT or event.key == ord("a") and self.direction != "RIGHT":
+                elif event.key == pygame.K_LEFT or event.key == ord("a"):
 
-                    self.direction = "LEFT"
+                    new_direction = "LEFT"
+
+        if new_direction == "UP" and self.direction != "DOWN":
+            self.direction == "UP"
+
+        if new_direction == "DOWN" and self.direction != "UP":
+            self.direction == "DOWN"
+
+        if new_direction == "RIGHT" and self.direction != "LEFT":
+            self.direction == "RIGHT"
+
+        if new_direction == "LEFT" and self.direction != "RIGHT":
+            self.direction == "LEFT"
 
         self.move_snake()
         self._level.check_food()
