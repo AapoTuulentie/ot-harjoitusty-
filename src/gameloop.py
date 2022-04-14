@@ -6,9 +6,9 @@ class GameLoop:
         
         self._display = display
         self._clock = pygame.time.Clock()
+        self.fps = 20
         self._level = level
         self.direction = "RIGHT"
-        self.velocity = 4
 
 
     def start(self):
@@ -27,9 +27,9 @@ class GameLoop:
             if self._level.check_collisions() is True:
                 break
 
-            self._clock.tick(20)
+            self._clock.tick(self.fps)
             self._level.render()
-            self.events()
+            
     
     def events(self):
 
@@ -83,6 +83,8 @@ class GameLoop:
             x -= self._level.block
         
         self._level.snake_head = [x, y]
+
+
 
 
     
