@@ -17,16 +17,13 @@ class GameLoop:
             pygame.display.update()
             self._display.fill((0, 0, 0))
 
-            if self._events() == False:
-                break
-            
-            if self._player_inputs() is False:
+            if self._events() is False:
                 break
 
             if self.check_collisions() is True:
                 break
 
-            self._clock.tick(10)
+            self._clock.tick(20)
             self._level.render()
             self._events()
     
@@ -97,9 +94,4 @@ class GameLoop:
         return False
 
 
-    def _player_inputs(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return False
-        return True
 
