@@ -13,18 +13,6 @@ class GameLoop:
     def start(self):
 
         while True:
-
-            if self._events == False:
-                pygame.quit()
-                quit()
-            
-            if self._player_inputs() is False:
-                pygame.quit()
-                quit()
-
-            if self.check_collisions is True:
-                pygame.quit()
-                quit()
             
             pygame.display.update()
             self._display.fill((0, 0, 0))
@@ -33,7 +21,14 @@ class GameLoop:
             self._level.render()
             self._events()
 
+            if self._events == False:
+                break
             
+            if self._player_inputs() is False:
+                break
+
+            if self.check_collisions is True:
+                break
     
     def _events(self):
 
@@ -64,10 +59,6 @@ class GameLoop:
         self.move_snake()
         self._level.snake_body.insert(0, self._level.snake_head)
 
-        if self.check_collisions is True:
-            pygame.quit()
-            quit()
-
         self._level.check_food()
 
 
@@ -90,7 +81,7 @@ class GameLoop:
 
         elif self.direction == "LEFT":
 
-            x += self._level.block
+            x -= self._level.block
 
         self._level.snake_head = [x, y]
 
