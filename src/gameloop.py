@@ -8,6 +8,7 @@ class GameLoop:
         self._clock = pygame.time.Clock()
         self._level = level
         self.direction = "RIGHT"
+        self.velocity = 4
 
 
     def start(self):
@@ -57,8 +58,6 @@ class GameLoop:
                     self.direction = "LEFT"
 
         self.move_snake()
-        self._level.snake_body.insert(0, self._level.snake_head)
-
         self._level.check_food()
 
 
@@ -83,7 +82,10 @@ class GameLoop:
 
             x -= self._level.block
 
-        self._level.snake_head = [x, y]
+        x += self.velocity
+        y += self.velocity
+        
+        # self._level.snake_head = [x, y]
 
 
     
