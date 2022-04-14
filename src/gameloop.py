@@ -14,6 +14,9 @@ class GameLoop:
 
         while True:
             
+            if self.events() is False:
+                break
+
             pygame.display.update()
             self._display.fill((0, 0, 0))
 
@@ -25,9 +28,9 @@ class GameLoop:
 
             self._clock.tick(20)
             self._level.render()
-            self._events()
+            self.events()
     
-    def _events(self):
+    def events(self):
 
         for event in pygame.event.get():
 
