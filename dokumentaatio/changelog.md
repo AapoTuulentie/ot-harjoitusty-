@@ -1,3 +1,5 @@
-Viikko 4
+##### Viikko 4
 
-- Perusvaihe ei valmis
+- Pelin perustoiminnallisuus lähes valmis
+
+##### Viikko 5
