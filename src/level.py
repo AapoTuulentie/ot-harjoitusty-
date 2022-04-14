@@ -13,6 +13,7 @@ class Level:
         self.food = None
         self.spawn_food()
 
+
     def spawn_food(self):   
         
         x = randint(0, (1000 - self.block) // self.block) * self.block
@@ -32,6 +33,7 @@ class Level:
 
         pygame.display.update()
 
+
     def check_food(self):
 
         if self.snake_head == self.food:
@@ -39,6 +41,17 @@ class Level:
 
         else:
             self.snake_body.pop()
+
+
+    def check_collisions(self):
+
+        if self._level.snake_head[0] > 1000 - self._level.block or self._level.snake_head[1] > 800 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
+            return True
+        
+        if self._level.snake_head in self._level.snake_body[1:]:
+            return True
+
+        return False
 
 
     

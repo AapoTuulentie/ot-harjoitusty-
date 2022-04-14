@@ -23,7 +23,7 @@ class GameLoop:
             if self._events() is False:
                 break
 
-            if self.check_collisions() is True:
+            if self._level.check_collisions() is True:
                 break
 
             self._clock.tick(20)
@@ -86,15 +86,7 @@ class GameLoop:
         self._level.snake_head = [x, y]
 
 
-    def check_collisions(self):
-
-        if self._level.snake_head[0] > 1000 - self._level.block or self._level.snake_head[1] > 800 - self._level.block or self._level.snake_head[0] < 0 or self._level.snake_head[1] < 0:
-            return True
-        
-        if self._level.snake_head in self._level.snake_body[1:]:
-            return True
-
-        return False
+    
 
 
 
