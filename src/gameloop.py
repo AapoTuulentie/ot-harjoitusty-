@@ -6,7 +6,7 @@ class GameLoop:
         
         self._display = display
         self._clock = pygame.time.Clock()
-        self.fps = 20
+        self.fps = 15
         self._level = level
         self.direction = "RIGHT"
 
