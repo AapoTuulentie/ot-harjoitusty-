@@ -1,4 +1,5 @@
 import pygame
+import time
 from collections import namedtuple
 from random import randint
 
@@ -86,8 +87,17 @@ class Level:
         self.snake_head = [x, y]
 
 
-    
+    def game_over(self):
 
+        font = font = pygame.font.SysFont('arial', 90)
+        game_over_text = font.render("GAME OVER", True, (255, 0, 0))
+        game_over_text_rect = game_over_text.get_rect()
+
+        self._display.fill((0, 0, 0))
+        self._display.blit(game_over_text, game_over_text_rect)
+        pygame.display.flip()
+        time.sleep(3)
+        pygame.quit()
 
     
 

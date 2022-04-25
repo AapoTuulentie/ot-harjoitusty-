@@ -20,7 +20,7 @@ class GameLoop:
                 break
 
             if self._level.check_collisions() is True:
-                break
+                self._level.game_over()
 
             self._clock.tick(self.fps)
             self._level.render()
