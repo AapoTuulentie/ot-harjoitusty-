@@ -4,7 +4,7 @@ from random import randint
 
 class Level:
 
-    def __init__(self, display, gameloop):
+    def __init__(self, display):
 
         self.snake_head = [1000/2, 800/2]
         self._display = display
@@ -12,7 +12,7 @@ class Level:
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
         self.score = 0
-        self._gameloop = gameloop
+        self.direction = "RIGHT"
         self.spawn_food()
 
 
@@ -67,19 +67,19 @@ class Level:
         x = self.snake_head[0]
         y = self.snake_head[1]
 
-        if self._gameloop.direction == "UP":
+        if self.direction == "UP":
 
             y -= self.block
 
-        elif self._gameloop.direction == "DOWN":
+        elif self.direction == "DOWN":
 
             y += self.block
 
-        elif self._gameloop.direction == "RIGHT":
+        elif self.direction == "RIGHT":
 
             x += self.block
 
-        elif self._gameloop.direction == "LEFT":
+        elif self.direction == "LEFT":
 
             x -= self.block
         
