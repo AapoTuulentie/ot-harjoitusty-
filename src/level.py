@@ -1,6 +1,5 @@
 import pygame
 import time
-from collections import namedtuple
 from random import randint
 
 class Level:
@@ -22,7 +21,9 @@ class Level:
         x = randint(0, (1000 - self.block) // self.block) * self.block
         y = randint(0, (800 - self.block) // self.block) * self.block
         self.food = [x, y]
+        
         if self.food in self.snake_body:
+            
             self.spawn_food()
 
 
@@ -44,9 +45,11 @@ class Level:
     def check_food(self):
 
         self.snake_body.insert(0, self.snake_head)
+        
         if self.snake_head == self.food:
-                self.score += 1
-                self.spawn_food()
+            
+            self.score += 1
+            self.spawn_food()
 
         else:
             self.snake_body.pop()
@@ -87,7 +90,7 @@ class Level:
         self.snake_head = [x, y]
 
 
-    def start_screen(self):
+    def start_screen(self):  #KESKEN
 
         font = font = pygame.font.SysFont('arial', 70)
         start_text = font.render("Welcome to snake! The game will start shortly, get ready!", True, (0,201,87))
@@ -96,7 +99,7 @@ class Level:
         time.sleep(3)
         pygame.display.update()
 
-    def end_screen(self):
+    def end_screen(self):  #KESKEN
 
         font = font = pygame.font.SysFont('arial', 90)
         game_over_text = font.render("GAME OVER", True, (255, 0, 0))
