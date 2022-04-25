@@ -1,16 +1,12 @@
 import unittest
-import pygame
 from level import Level
-from gameloop import GameLoop
 
 
-class TestSnake:
+class TestSnake(unittest.TestCase):
 
     def setUp(self):
 
         self.level = Level()
-        self.gameloop = GameLoop()
-
 
     def test_collisions(self):
 
