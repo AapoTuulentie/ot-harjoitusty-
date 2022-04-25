@@ -87,7 +87,16 @@ class Level:
         self.snake_head = [x, y]
 
 
-    def game_over(self):
+    def start_screen(self):
+
+        font = font = pygame.font.SysFont('arial', 70)
+        start_text = font.render("Welcome to snake! The game will start shortly, get ready!", True, (0,201,87))
+        self._display.fill((0, 0, 0))
+        self._display.blit(start_text, [1000/2, 800/2])
+
+        pygame.display.update()
+
+    def end_screen(self):
 
         font = font = pygame.font.SysFont('arial', 90)
         game_over_text = font.render("GAME OVER", True, (255, 0, 0))
@@ -95,7 +104,7 @@ class Level:
 
         self._display.fill((0, 0, 0))
         self._display.blit(game_over_text, game_over_text_rect)
-        pygame.display.flip()
+        pygame.display.update()
         time.sleep(3)
         pygame.quit()
 
