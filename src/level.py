@@ -93,7 +93,7 @@ class Level:
         start_text = font.render("Welcome to snake! The game will start shortly, get ready!", True, (0,201,87))
         self._display.fill((0, 0, 0))
         self._display.blit(start_text, [1000/2, 800/2])
-
+        time.sleep(3)
         pygame.display.update()
 
     def end_screen(self):
@@ -103,7 +103,7 @@ class Level:
         game_over_text_rect = game_over_text.get_rect()
 
         self._display.fill((0, 0, 0))
-        self._display.blit(game_over_text, game_over_text_rect)
+        self._display.blit(game_over_text, [1000/2, 800/2])
         pygame.display.update()
         time.sleep(3)
         pygame.quit()

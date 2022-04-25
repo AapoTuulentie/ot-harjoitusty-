@@ -14,6 +14,8 @@ class GameLoop:
 
         while True:
 
+            self._level.start_screen()
+
             self._display.fill((0, 0, 0))
 
             if self.events() is False:
