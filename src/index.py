@@ -10,7 +10,7 @@ def main():
     display = pygame.display.set_mode((display_size_x, display_size_y))
     pygame.display.set_caption("Matopeli")
 
-    level = Level(display)
+    level = Level(display), gameloop
     gameloop = GameLoop(display, level)
 
     pygame.init()
