@@ -56,32 +56,11 @@ class GameLoop:
                     self.direction = "LEFT"
 
 
-        self.move_snake()
+        self._level.move_snake()
         self._level.check_food()
 
 
-    def move_snake(self):
 
-        x = self._level.snake_head[0]
-        y = self._level.snake_head[1]
-
-        if self.direction == "UP":
-
-            y -= self._level.block
-
-        elif self.direction == "DOWN":
-
-            y += self._level.block
-
-        elif self.direction == "RIGHT":
-
-            x += self._level.block
-
-        elif self.direction == "LEFT":
-
-            x -= self._level.block
-        
-        self._level.snake_head = [x, y]
 
 
 
