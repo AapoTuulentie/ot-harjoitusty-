@@ -27,8 +27,8 @@
 #### Pelin toiminta
 
 ```mermaid
-    
-    sequenceDagram
+    sequenceDiagram
+        
         participant Index
         participant GameLoop
         participant Level
