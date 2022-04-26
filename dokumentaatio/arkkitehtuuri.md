@@ -33,5 +33,6 @@
         Index ->> GameLoop: Start
         GameLoop -->> Index: End
         Index ->> Level: Create level
-
+        Level -->> Index: None
+        
 ```
