@@ -11,3 +11,4 @@
 - Arkkitehtuuri
 - Testikattavuus yli 40%
 - Pylint virheitä alle 5 
+- Madon nopeus kasvaa syödessä
