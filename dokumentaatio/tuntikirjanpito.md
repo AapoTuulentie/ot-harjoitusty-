@@ -7,3 +7,5 @@
 14.4 Perustoiminnot valmiit, testit puuttuvat - 7h <br>
 25.4 Testit - 4h <br>
 26.4 Arkkitehtuuri, coverage, madon nopeus kasvaa - 3h <br>
+<p>
+Yhteensä 31h 
