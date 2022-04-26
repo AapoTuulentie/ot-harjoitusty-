@@ -1,4 +1,4 @@
-import pygame 
+import pygame
 from level import Level
 from gameloop import GameLoop
 
@@ -15,7 +15,7 @@ def main():
 
     pygame.init()
     gameloop.start()
-    
+
 
 if __name__ == "__main__":
     main()

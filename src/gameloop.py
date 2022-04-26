@@ -1,14 +1,13 @@
 import pygame
 
+
 class GameLoop:
 
     def __init__(self, display, level):
-        
+
         self._display = display
         self._clock = pygame.time.Clock()
-        self.fps = 18
         self._level = level
-        
 
     def start(self):
 
@@ -22,11 +21,10 @@ class GameLoop:
             if self._level.check_collisions() is True:
                 self._level.end_screen()
 
-            self._clock.tick(self.fps)
+            self._clock.tick(self._level.fps)
             self._level.render()
             pygame.display.update()
-            
-    
+
     def events(self):
 
         previous_direction = self._level.direction
@@ -37,7 +35,7 @@ class GameLoop:
 
                 return False
 
-            elif event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_UP and previous_direction != "DOWN":
 
@@ -55,17 +53,5 @@ class GameLoop:
 
                     self._level.direction = "LEFT"
 
-
         self._level.move_snake()
         self._level.check_food()
-
-
-
-
-
-
-
-    
-
-
-

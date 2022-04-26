@@ -1,6 +1,9 @@
-import pygame
 import time
 from random import randint
+import pygame
+from gameloop import GameLoop
+
+
 
 class Level:
 
@@ -9,63 +12,64 @@ class Level:
         self.snake_head = [1000/2, 800/2]
         self._display = display
         self.block = 20
-        self.snake_body = [self.snake_head, [self.snake_head[0] - self.block, self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
+        self.snake_body = [self.snake_head, [self.snake_head[0] - self.block,
+                                             self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
+        self.fps = 18
         self.score = 0
         self.direction = "RIGHT"
         self.spawn_food()
 
+    def spawn_food(self):
 
-    def spawn_food(self):   
-        
         x = randint(0, (1000 - self.block) // self.block) * self.block
         y = randint(0, (800 - self.block) // self.block) * self.block
         self.food = [x, y]
-        
-        if self.food in self.snake_body:
-            
-            self.spawn_food()
 
+        if self.food in self.snake_body:
+
+            self.spawn_food()
 
     def render(self):
 
         for block in self.snake_body:
 
-            pygame.draw.rect(self._display, (0,201,87), pygame.Rect(block[0], block[1], self.block, self.block))
+            pygame.draw.rect(self._display, (0, 201, 87), pygame.Rect(
+                block[0], block[1], self.block, self.block))
 
-        pygame.draw.rect(self._display, (220,20,60), pygame.Rect(self.food[0], self.food[1], self.block, self.block))
+        pygame.draw.rect(self._display, (220, 20, 60), pygame.Rect(
+            self.food[0], self.food[1], self.block, self.block))
 
         font = font = pygame.font.SysFont('arial', 25)
-        text = font.render(f"Pisteet: {self.score}", True, (240,255,255))
+        text = font.render(f"Pisteet: {self.score}", True, (240, 255, 255))
         self._display.blit(text, [0, 0])
 
         pygame.display.update()
 
-
     def check_food(self):
 
         self.snake_body.insert(0, self.snake_head)
-        
+
         if self.snake_head == self.food:
-            
+
             self.score += 1
+            self.fps += 0.5
             self.spawn_food()
 
         else:
+            
             self.snake_body.pop()
-
 
     def check_collisions(self):
 
         if self.snake_head[0] > 1000 - self.block or self.snake_head[1] > 800 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:
             return True
-        
+
         if self.snake_head in self.snake_body[1:]:
             return True
 
         return False
 
-    
     def move_snake(self):
 
         x = self.snake_head[0]
@@ -86,31 +90,26 @@ class Level:
         elif self.direction == "LEFT":
 
             x -= self.block
-        
+
         self.snake_head = [x, y]
 
-
-    def start_screen(self):  #KESKEN
+    def start_screen(self):  # KESKEN
 
         font = font = pygame.font.SysFont('arial', 70)
-        start_text = font.render("Welcome to snake! The game will start shortly, get ready!", True, (0,201,87))
+        start_text = font.render(
+            "Welcome to snake! The game will start shortly, get ready!", True, (0, 201, 87))
         self._display.fill((0, 0, 0))
         self._display.blit(start_text, [1000/2, 800/2])
         time.sleep(3)
         pygame.display.update()
 
-    def end_screen(self):  #KESKEN
+    def end_screen(self):  # KESKEN
 
         font = font = pygame.font.SysFont('arial', 90)
         game_over_text = font.render("GAME OVER", True, (255, 0, 0))
-        game_over_text_rect = game_over_text.get_rect()
 
         self._display.fill((0, 0, 0))
         self._display.blit(game_over_text, [1000/2, 800/2])
         pygame.display.update()
         time.sleep(3)
         pygame.quit()
-
-    
-
-        

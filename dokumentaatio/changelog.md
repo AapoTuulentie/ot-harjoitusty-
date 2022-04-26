@@ -8,3 +8,6 @@
 - Luotu luokka Level, jonka funktiot luovat madon sekä tarkistavat törmäykset ja ruoat
 - Perustoiminnallisuus valmis: matoa pystyy ohjaamaan nuolinäppäimillä, mato kasvaa kun se syö, peli loppuu kun mato törmää seinään
 - Mato ei enää pysty kääntymään päinvastaiseen suuntaan
+- Arkkitehtuuri
+- Testikattavuus yli 40%
+- Pylint virheitä alle 5 
