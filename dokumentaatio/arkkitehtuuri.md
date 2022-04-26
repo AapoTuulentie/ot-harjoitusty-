@@ -26,10 +26,11 @@
 
 #### Pelin toiminta
 
-    ```mermaid
-        sequenceDagram
-            participant Index
-            participant GameLoop
-            participant Level
-            Index ->> GameLoop: Start
-            GameLoop ->> Index: End
+```mermaid
+    sequenceDagram
+        participant Index
+        participant GameLoop
+        participant Level
+        Index ->> GameLoop: Start
+        GameLoop ->> Index: End
+```
