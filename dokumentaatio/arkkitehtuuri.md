@@ -31,6 +31,7 @@
         participant GameLoop
         participant Level
         Index ->> GameLoop: Start
-        GameLoop ->> Index: End
+        GameLoop -->> Index: End
+        Index ->> Level: Create level
 
 ```
