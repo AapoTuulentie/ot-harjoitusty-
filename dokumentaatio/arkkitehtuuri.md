@@ -1,4 +1,4 @@
-graph TD;
+flowchart TD;
 
     Index --> GameLoop;
     Index --> Level;
