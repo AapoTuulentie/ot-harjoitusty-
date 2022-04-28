@@ -8,6 +8,6 @@
 25.4 Testit - 4h <br>
 26.4 Arkkitehtuuri, coverage, madon nopeus kasvaa - 3h <br>
 27.4 Main menu - 2h <br>
-28.4 Main menu ja Game over - 2h <br>
+28.4 Main menu-ruutu, Game over-ruutu ja restart game toiminto tehty - 3h <br>
 <p>
-Yhteensä 35h 
+Yhteensä 36h 
