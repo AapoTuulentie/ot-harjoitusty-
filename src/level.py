@@ -1,4 +1,3 @@
-import time
 from random import randint
 import pygame
 from gameloop import GameLoop
@@ -15,7 +14,7 @@ class Level:
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block,
                                              self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
         self.food = None
-        self.fps = 18
+        self.fps = 16
         self.score = 0
         self.direction = "RIGHT"
         self.spawn_food()
@@ -41,7 +40,7 @@ class Level:
             self.food[0], self.food[1], self.block, self.block))
 
         font = font = pygame.font.SysFont('arial', 25)
-        text = font.render(f"Pisteet: {self.score}", True, (240, 255, 255))
+        text = font.render(f"Score: {self.score}", True, (240, 255, 255))
         self._display.blit(text, [0, 0])
 
         pygame.display.update()
@@ -53,7 +52,7 @@ class Level:
         if self.snake_head == self.food:
 
             self.score += 1
-            self.fps += 0.5
+            self.fps += 0.2
             self.spawn_food()
 
         else:
@@ -93,23 +92,5 @@ class Level:
 
         self.snake_head = [x, y]
 
-    def start_screen(self):  # KESKEN
+    
 
-        font = font = pygame.font.SysFont('arial', 70)
-        start_text = font.render(
-            "Welcome to snake! The game will start shortly, get ready!", True, (0, 201, 87))
-        self._display.fill((0, 0, 0))
-        self._display.blit(start_text, [1000/2, 800/2])
-        time.sleep(3)
-        pygame.display.update()
-
-    def end_screen(self):  # KESKEN
-
-        font = font = pygame.font.SysFont('arial', 90)
-        game_over_text = font.render("GAME OVER", True, (255, 0, 0))
-
-        self._display.fill((0, 0, 0))
-        self._display.blit(game_over_text, [1000/2, 800/2])
-        pygame.display.update()
-        time.sleep(3)
-        pygame.quit()
