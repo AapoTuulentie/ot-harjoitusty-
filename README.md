@@ -14,4 +14,4 @@ Sovellus on perinteinen matopeli, jossa mato kerää ruokaa kentältä ja kasvaa
 
 Ohjelman voi suorittaa komennolla <b>poetry run invoke start</b> <br>
 Ohjelman testit voidaan suorittaa komennolla <b>poetry run invoke test</b> <br>
-Ohjelman testikattavuuden saa suorittamalla komennon <b>poetry run invoke coverage-report</b>
+Ohjelman testikattavuuden saa suorittamalla src-hakemistossa komennon <b>poetry run invoke coverage-report</b>
