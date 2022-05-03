@@ -9,6 +9,7 @@ Sovellus on perinteinen matopeli, jossa mato kerää ruokaa kentältä ja kasvaa
 ###### [Changelog](https://github.com/AapoTuulentie/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 ###### [Arkkitehtuuri](https://github.com/AapoTuulentie/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md) 
 ###### [Viikko 5 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko5)
+###### [Viikko 6 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko6)
 
 ### Komentorivi
 
