@@ -15,3 +15,4 @@
 
 ### Viikko 6
 
+- Luotu menu-näkymä, game over-näkymä ja restart-metodi (tehty releasen jälkeen!)
