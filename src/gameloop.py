@@ -1,8 +1,16 @@
-import pygame
 import sys
+import pygame
 
 
 class GameLoop:
+    
+    """Luokka määrittelee pelin valikot sekä pelin kulun ja käärmeen ohjaamisen.
+    
+    Atribuutit:
+        display: peli-ikkunan koko
+        clock: kello
+        level: toinen luokka level
+    """
 
     def __init__(self, display, level):
 
@@ -10,11 +18,12 @@ class GameLoop:
         self._clock = pygame.time.Clock()
         self._level = level
 
-
     def start(self):
 
+        """Aloittaa peliloopin"""
+
         while True:
-         
+
             self._display.fill((0, 0, 0))
 
             if self.events() is False:
@@ -27,8 +36,11 @@ class GameLoop:
             self._level.render()
             pygame.display.update()
 
-
     def events(self):
+
+        """Määrittelee pelin tapahtumat sekä näppäimet käärmeen ohjaamiseen
+            Perii funktiot move_snake ja check_food Level-luokasta.
+            """
 
         previous_direction = self._level.direction
 
@@ -59,8 +71,16 @@ class GameLoop:
         self._level.move_snake()
         self._level.check_food()
 
+    def main_menu(self):
 
-    def main_menu(self): 
+        """Päävalikko, jossa on nappi pelin aloittamiselle
+
+            Args:
+                font: suurempi fontti
+                font2: pienempi fontti
+                start_text: otsikko
+                button_text: napissa oleva teksti
+            """
 
         font = pygame.font.SysFont('arial', 70)
         font2 = pygame.font.SysFont('arial', 35)
@@ -73,11 +93,12 @@ class GameLoop:
             self._display.blit(start_text, [110, 300])
             x, y = pygame.mouse.get_pos()
 
-            button_1 = pygame.draw.rect(self._display, (0, 201, 87), [400, 420, 200, 50])
+            button_1 = pygame.draw.rect(
+                self._display, (0, 201, 87), [400, 420, 200, 50])
             self._display.blit(button_text, button_1)
 
             pygame.display.update()
-    
+
             click = False
 
             for event in pygame.event.get():
@@ -93,13 +114,21 @@ class GameLoop:
                         click = True
 
                 if button_1.collidepoint((x, y)):
-                
+
                     if click:
-                
+
                         self.start()
 
+    def end_screen(self):
 
-    def end_screen(self):  
+        """Loppunäyttö, josta voi yrittää peliä uudelleen
+
+            Args:
+                font: suurempi fontti
+                font2: pienempi fontti
+                game_over: otsikko
+                button_text: napissa oleva teksti
+        """
 
         font = pygame.font.SysFont('arial', 70)
         font2 = pygame.font.SysFont('arial', 35)
@@ -112,9 +141,9 @@ class GameLoop:
             self._display.blit(game_over, [300, 300])
             x, y = pygame.mouse.get_pos()
 
-            button_1 = pygame.draw.rect(self._display, (0, 201, 87), [440, 420, 120, 50])
+            button_1 = pygame.draw.rect(
+                self._display, (0, 201, 87), [440, 420, 120, 50])
             self._display.blit(button_text, button_1)
-        
 
             pygame.display.update()
 
@@ -134,12 +163,15 @@ class GameLoop:
                         click = True
 
                 if button_1.collidepoint((x, y)):
-                
+
                     if click:
-                        
+
                         self._level.snake_head = [1000/2, 800/2]
-                        self._level.snake_body = [self._level.snake_head, [self._level.snake_head[0] - self._level.block,
-                                             self._level.snake_head[1]], [self._level.snake_head[0] - 2*self._level.block, self._level.snake_head[1]]]
+                        self._level.snake_body = [self._level.snake_head,
+                                                [self._level.snake_head[0] -
+                                                self._level.block, self._level.snake_head[1]],
+                                                [self._level.snake_head[0] - 2*self._level.block,
+                                                self._level.snake_head[1]]]
                         self._level.direction = "RIGHT"
 
                         self.start()

@@ -1,10 +1,22 @@
 from random import randint
 import pygame
-from gameloop import GameLoop
-
 
 
 class Level:
+
+    """Luokka, jossa on kaikki yksityiskohtaisemmat pelin toiminnot
+    
+        Atribuutit:
+            snake_head: lähtökoordinaatti käärmeen päälle
+            snake_body: lähtökoordinaatti käärmeen koko vartalolle
+            display: peli-ikkunan koko
+            block: yhden käärmeen osan (neliön) koko
+            food: ruoan sijainti. Funktio spawn_food antaa sille ensimmäisen arvon
+            fps: pelin frames per second alussa
+            score: pelaajan pisteet
+            direction: käärmeen suunta pelin alussa
+        """
+
 
     def __init__(self, display):
 
@@ -12,14 +24,24 @@ class Level:
         self._display = display
         self.block = 20
         self.snake_body = [self.snake_head, [self.snake_head[0] - self.block,
-                                             self.snake_head[1]], [self.snake_head[0] - 2*self.block, self.snake_head[1]]]
+                                             self.snake_head[1]], [self.snake_head[0]
+                                             - 2*self.block, self.snake_head[1]]]
         self.food = None
         self.fps = 16
         self.score = 0
         self.direction = "RIGHT"
         self.spawn_food()
 
+
     def spawn_food(self):
+
+        """Spawnaa uuden ruoan pelikentälle. Jos randomilla otettu koordinaatti sijaitsee käärmeen sisässä,
+        funktiota kutsutaan uudelleen.
+        
+            Args:
+                x: ruoan x-koordinaatti
+                y: ruoan y-koordinaatti
+            """
 
         x = randint(0, (1000 - self.block) // self.block) * self.block
         y = randint(0, (800 - self.block) // self.block) * self.block
@@ -29,7 +51,15 @@ class Level:
 
             self.spawn_food()
 
+
     def render(self):
+
+        """Muodostaa käärmeen vartalon ja ruoan pelikentälle. Lisää myös pistelaskurin yläkulmaan.
+        
+            Args:
+                font: fontti pistelaskurille 
+                text: teksti pistelaskurille
+            """
 
         for block in self.snake_body:
 
@@ -45,7 +75,11 @@ class Level:
 
         pygame.display.update()
 
+
     def check_food(self):
+
+        """Liikuttaa käärmettä ja lisää pisteitä, jos ruoka on käärmeen sisässä.
+        """
 
         self.snake_body.insert(0, self.snake_head)
 
@@ -56,10 +90,14 @@ class Level:
             self.spawn_food()
 
         else:
-            
+
             self.snake_body.pop()
 
+
     def check_collisions(self):
+
+        """Tarkistaa törmäykset pelikentän reunan ja käärmeen itsensä kanssa.
+        """
 
         if self.snake_head[0] > 1000 - self.block or self.snake_head[1] > 800 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:
             return True
@@ -69,8 +107,12 @@ class Level:
 
         return False
 
+
     def move_snake(self):
 
+        """Liikuttaa käärmettä x- ja y-suunnassa 
+        """
+        
         x = self.snake_head[0]
         y = self.snake_head[1]
 
@@ -91,6 +133,3 @@ class Level:
             x -= self.block
 
         self.snake_head = [x, y]
-
-    
-

@@ -64,7 +64,7 @@ class TestLevel(unittest.TestCase):
     def test_snake_move_left(self):
 
         self.level.snake_head = [500, 400]
-        self.level.direction =  "LEFT"
+        self.level.direction = "LEFT"
         self.level.move_snake()
 
         self.assertEqual(self.level.snake_head, [480, 400])
@@ -77,3 +77,11 @@ class TestLevel(unittest.TestCase):
         self.level.check_food()
 
         self.assertEqual(self.level.snake_body[-1], [520, 400])
+
+    
+    def test_check_collision_return_false(self):
+
+        self.level.snake_head = [500, 400]
+        self.level.snake_body = [[500, 400], [520, 400], [540, 400]]
+
+        self.assertEqual(self.level.check_collisions(), False)
