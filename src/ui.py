@@ -4,11 +4,12 @@ import pygame
 
 class Ui:
 
-    def __init__(self, display, level, gameloop):
+    def __init__(self, display, level, gameloop, connection):
 
         self._display = display
         self._level = level
         self._gameloop = gameloop
+        self._connection = connection
 
     
     def main_menu(self):
@@ -26,10 +27,10 @@ class Ui:
         font2 = pygame.font.SysFont('arial', 35)
         start_text = font.render("Welcome to Snake Game!", True, (0, 201, 87))
         button_text = font2.render("Start Game", True, (0, 0, 0))
+        self._display.fill((0, 0, 0))
 
         while True:
 
-            self._display.fill((0, 0, 0))
             self._display.blit(start_text, [110, 300])
             x, y = pygame.mouse.get_pos()
 
@@ -46,6 +47,7 @@ class Ui:
                 if event.type == pygame.QUIT:
 
                     pygame.quit()
+                    sys.exit()
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
 
@@ -72,20 +74,31 @@ class Ui:
                 button_text: napissa oleva teksti
         """
 
+        cursor = self._connection.cursor()
+        cursor.execute("INSERT INTO highscores (score) VALUES (?)", self._level.score)
+        self._connection.commit()
+
+        score = self.get_highscore()
         font = pygame.font.SysFont('arial', 70)
         font2 = pygame.font.SysFont('arial', 35)
         game_over = font.render("Game Over!", True, (255, 48, 48))
         button_text = font2.render("Restart", True, (0, 0, 0))
+        button2_text = font2.render("Quit Game", True, (0, 0, 0))
+        highscore = font2.render(f"Your Highscore: {score}", True, (255, 255, 255))
+        self._display.fill((0, 0, 0))
 
         while True:
 
-            self._display.fill((0, 0, 0))
-            self._display.blit(game_over, [300, 300])
+            
+            self._display.blit(game_over, [310, 300])
             x, y = pygame.mouse.get_pos()
 
-            button_1 = pygame.draw.rect(
-            self._display, (0, 201, 87), [440, 420, 120, 50])
+            button_1 = pygame.draw.rect(self._display, (0, 201, 87), [340, 420, 120, 50])
+            button_2 = pygame.draw.rect(self._display, (0, 201, 87), [490, 420, 180, 50])
             self._display.blit(button_text, button_1)
+            self._display.blit(button2_text, button_2)
+            self.display.blit(highscore, [0, 0])
+            
 
             pygame.display.update()
 
@@ -119,4 +132,18 @@ class Ui:
                         click = False
 
                         self._gameloop.start()
-    
+
+                if button_2.collidepoint((x, y)):
+
+                    if click:
+
+                        pygame.quit()
+                        sys.exit()
+
+
+    def get_highscore(self):
+
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT MAX(score) FROM highscores")
+        highscore = cursor.fetchone()[0]
+        return highscore

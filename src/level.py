@@ -86,7 +86,11 @@ class Level:
         if self.snake_head == self.food:
 
             self.score += 1
-            self.fps += 0.2
+            
+            if self.score % 5 == 0:
+
+                self.fps += 1
+            
             self.spawn_food()
 
         else:
