@@ -1,6 +1,7 @@
 import pygame
 from level import Level
 from gameloop import GameLoop
+from ui import Ui
 
 
 def main():
@@ -12,10 +13,14 @@ def main():
 
     level = Level(display)
     gameloop = GameLoop(display, level)
+    ui = Ui(display, level, gameloop)
 
     pygame.init()
-    gameloop.main_menu()
+    ui.main_menu()
 
+    while True:
+
+        ui.end_screen()
 
 if __name__ == "__main__":
     main()
