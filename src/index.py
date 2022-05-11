@@ -11,7 +11,7 @@ def main():
     display_size_y = 800
     display = pygame.display.set_mode((display_size_x, display_size_y))
     pygame.display.set_caption("Snake Game")
-    connection = get_database_connection
+    connection = get_database_connection()
 
     level = Level(display)
     gameloop = GameLoop(display, level)

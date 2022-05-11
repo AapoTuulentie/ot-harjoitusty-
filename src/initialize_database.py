@@ -13,7 +13,7 @@ def drop_tables(connection):
 def create_tables(connection):
     cursor = connection.cursor()
 
-    cursor.execute("CREATE TABLE highscores (id INTEGER PRIMARY KEY, score INTEGER);")
+    cursor.execute("CREATE TABLE highscores (id INTEGER PRIMARY KEY, score INTEGER)")
 
     connection.commit()
 
