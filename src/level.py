@@ -6,7 +6,7 @@ class Level:
 
     """Luokka, jossa on kaikki yksityiskohtaisemmat pelin toiminnot
     
-        Atribuutit:
+        Attributes:
             snake_head: lähtökoordinaatti käärmeen päälle
             snake_body: lähtökoordinaatti käärmeen koko vartalolle
             display: peli-ikkunan koko
@@ -101,6 +101,9 @@ class Level:
     def check_collisions(self):
 
         """Tarkistaa törmäykset pelikentän reunan ja käärmeen itsensä kanssa.
+
+            Returns:
+                Arvo True, jos käärme törmää reunaan tai itseensä. Muuten
         """
 
         if self.snake_head[0] > 1000 - self.block or self.snake_head[1] > 800 - self.block or self.snake_head[0] < 0 or self.snake_head[1] < 0:

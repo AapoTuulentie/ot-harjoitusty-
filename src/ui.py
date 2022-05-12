@@ -4,13 +4,21 @@ import pygame
 
 class Ui:
 
+    """Luokka käyttöliittymälle
+    
+        Attributes:
+            display: peli-ikkuna
+            level: luokka level
+            gameloop: luokka gameloop
+            connection: yhteys SQL-tietokantaan
+    """
+
     def __init__(self, display, level, gameloop, connection):
 
         self._display = display
         self._level = level
         self._gameloop = gameloop
         self._connection = connection
-
     
     def main_menu(self):
 
@@ -21,7 +29,10 @@ class Ui:
                 font2: pienempi fontti
                 start_text: otsikko
                 button_text: napissa oleva teksti
-            """
+
+            Returns:
+                gameloop.start() funktion, joka aloittaa peliloopin
+        """
 
         font = pygame.font.SysFont('arial', 70)
         font2 = pygame.font.SysFont('arial', 35)
@@ -66,8 +77,6 @@ class Ui:
                     if click:
 
                         return self._gameloop.start()
-
-            
 
     def end_screen(self):
 
@@ -145,8 +154,10 @@ class Ui:
                         pygame.quit()
                         sys.exit()
 
-
     def get_highscore(self):
+        
+        """Hakee SQL-tietokannasta käyttäjän parhaan tuloksen
+        """
 
         cursor = self._connection.cursor()
         cursor.execute("SELECT MAX(score) FROM highscores")

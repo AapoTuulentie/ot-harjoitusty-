@@ -5,7 +5,7 @@ class GameLoop:
     
     """Luokka määrittelee pelin valikot sekä pelin kulun ja käärmeen ohjaamisen.
     
-    Atribuutit:
+    Attributes:
         display: peli-ikkunan koko
         clock: kello
         level: toinen luokka level

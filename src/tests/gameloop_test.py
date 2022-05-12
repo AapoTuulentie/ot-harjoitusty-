@@ -6,19 +6,18 @@ from gameloop import GameLoop
 
 
 class StubEvent:
+    
     def __init__(self, event_type, key):
         self.type = event_type
         self.key = key
 
-
 class StubEventQueue:
+    
     def __init__(self, events):
         self._events = events
 
     def get(self):
         return self._events
-
-
 
 class TestGameLoop(unittest.TestCase):
 
