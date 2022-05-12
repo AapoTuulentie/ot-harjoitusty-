@@ -1,3 +1,11 @@
+# Arkkitehtuurikuvaus
+
+#### Rakenne
+
+Ohjelma koostuu 
+
+
+
 ```mermaid
     classDiagram
 
@@ -31,7 +39,7 @@
     }
     
 ```
-
+Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin. GameLoop tiedosto sisältää itse pelin loopin sekä pelin tapahtumien käsittelyn. <br> Level sisältää sovelluslogiikan ja Ui sisältää käyttöliittymän.
 ```mermaid
     sequenceDiagram
         
