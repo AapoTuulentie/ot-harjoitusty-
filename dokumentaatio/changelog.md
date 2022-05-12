@@ -17,3 +17,9 @@
 
 - Luotu menu-näkymä, game over-näkymä ja restart-metodi 
 - Docstring
+
+### Viikko 7
+
+- Toiminnallisuus jaettu järkevästi eri tiedostoihin
+- SQL-tietokanta pelaajan pisteille
+- GameLoopille luotu testit ja testikattavuus yli 80%
