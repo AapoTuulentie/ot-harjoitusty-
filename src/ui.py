@@ -53,7 +53,7 @@ class Ui:
             button_1 = pygame.draw.rect(
                 self._display, (220, 20, 60), [400, 420, 200, 50])
             self._display.blit(button_text, button_1)
-            self._display.blit(highscore, [0, 0])
+            self._display.blit(highscore, [355, 510])
 
             pygame.display.update()
 
@@ -110,7 +110,7 @@ class Ui:
             button_2 = pygame.draw.rect(self._display, (128, 138, 135), [490, 420, 180, 50])
             self._display.blit(button_text, button_1)
             self._display.blit(button2_text, button_2)
-            self._display.blit(highscore, [0, 0])
+            self._display.blit(highscore, [360, 510])
             
 
             pygame.display.update()

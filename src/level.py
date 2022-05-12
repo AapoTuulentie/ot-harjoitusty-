@@ -73,6 +73,10 @@ class Level:
         text = font.render(f"Score: {self.score}", True, (240, 255, 255))
         self._display.blit(text, [0, 0])
 
+        font2 = pygame.font.SysFont('arial', 20)
+        text2 = font2.render("Press 'ESC' to pause", True, (240, 255, 255))
+        self._display.blit(text2, [790, 0])
+
         pygame.display.update()
 
 
