@@ -9,6 +9,10 @@
 26.4 Arkkitehtuuri, coverage, madon nopeus kasvaa - 3h <br>
 27.4 Main menu - 2h <br>
 28.4 Main menu-ruutu, Game over-ruutu ja restart game toiminto tehty - 3h <br>
-3.5 Docstring ja muuta pientä - 3h
+3.5 Docstring ja muuta pientä - 3h <br>
+9.5 Ui tiedosto - 1h <br>
+10.5 SQL-tietokanta - 4h <br>
+11.5 GameLoop testit ja testikattavuus yli 80% - 2h
+12.5 Dokumentaatio ja docstring - 2h
 <p>
-Yhteensä 39h 
+Yhteensä 48h 
