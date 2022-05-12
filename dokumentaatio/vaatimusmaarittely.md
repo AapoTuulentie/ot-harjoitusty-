@@ -6,13 +6,10 @@ Sovelluksen tarkoitus on perinteinen matopeli. Pelissä pelaaja ohjaa matoa, jok
 
 ### Toiminnallisuus
 
-- Käyttäjä voi pelata peliä
-- Käyttäjä näkee huippupisteensä
-
-### Jatkokehitys
-
-- 
-
+- Pelaaja voi navigoida valikoissa
+- "Start Game":n painamisen jälkeen käyttäjä voi pelata peliä 
+- Tulokset tallentuvat SQL-tietokantaan ja huipputulos näkyy sivun yläreunassa
+- Pelin pelaamisen voi lopettaa painamalla "Quit Game" loppuvalikossa
 
 
 
