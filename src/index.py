@@ -3,6 +3,7 @@ from level import Level
 from gameloop import GameLoop
 from ui import Ui
 from database_connection import get_database_connection
+from event_queue import EventQueue
 
 
 def main():
@@ -14,7 +15,8 @@ def main():
     connection = get_database_connection()
 
     level = Level(display)
-    gameloop = GameLoop(display, level)
+    event_queue = EventQueue()
+    gameloop = GameLoop(display, level, event_queue)
     ui = Ui(display, level, gameloop, connection)
 
     pygame.init()

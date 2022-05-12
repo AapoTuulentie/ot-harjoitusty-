@@ -60,7 +60,7 @@ class Level:
                 font: fontti pistelaskurille 
                 text: teksti pistelaskurille
             """
-
+        pygame.init()
         for block in self.snake_body:
 
             pygame.draw.rect(self._display, (0, 201, 87), pygame.Rect(
@@ -69,7 +69,7 @@ class Level:
         pygame.draw.rect(self._display, (220, 20, 60), pygame.Rect(
             self.food[0], self.food[1], self.block, self.block))
 
-        font = font = pygame.font.SysFont('arial', 25)
+        font = pygame.font.SysFont('arial', 25)
         text = font.render(f"Score: {self.score}", True, (240, 255, 255))
         self._display.blit(text, [0, 0])
 
@@ -137,3 +137,6 @@ class Level:
             x -= self.block
 
         self.snake_head = [x, y]
+
+    
+    

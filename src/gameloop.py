@@ -11,11 +11,12 @@ class GameLoop:
         level: toinen luokka level
     """
 
-    def __init__(self, display, level):
+    def __init__(self, display, level, event_queue):
 
         self._display = display
         self._clock = pygame.time.Clock()
         self._level = level
+        self._event_queue = event_queue
 
     def start(self):
 
@@ -43,7 +44,7 @@ class GameLoop:
 
         previous_direction = self._level.direction
 
-        for event in pygame.event.get():
+        for event in self._event_queue.get():
 
             if event.type == pygame.QUIT:
 

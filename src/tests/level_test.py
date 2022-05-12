@@ -1,7 +1,7 @@
 import unittest
 import pygame
 from level import Level
-from gameloop import GameLoop
+
 
 
 class TestLevel(unittest.TestCase):
