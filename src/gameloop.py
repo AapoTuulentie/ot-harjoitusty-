@@ -1,4 +1,4 @@
-import pygame
+import pygame, sys
 
 
 class GameLoop:
@@ -52,7 +52,11 @@ class GameLoop:
 
             if event.type == pygame.KEYDOWN:
 
-                if event.key == pygame.K_UP and previous_direction != "DOWN":
+                if event.key == pygame.K_ESCAPE:
+
+                    self.pause()
+
+                elif event.key == pygame.K_UP and previous_direction != "DOWN":
 
                     self._level.direction = "UP"
 
@@ -70,3 +74,24 @@ class GameLoop:
 
         self._level.move_snake()
         self._level.check_food()
+
+    def pause(self):
+
+        font = pygame.font.SysFont('arial', 40)
+        text = font.render("Game paused - press 'ESC' to continue", True, (255, 255, 255))
+        self._display.fill((0, 0, 0))
+        self._display.blit(text, [150, 350])
+        pygame.display.update()
+
+        while True:
+            
+            for event in self._event_queue.get():
+                
+                if event.type == pygame.KEYDOWN:
+                    
+                    if event.key == pygame.K_ESCAPE:
+                        return
+
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
