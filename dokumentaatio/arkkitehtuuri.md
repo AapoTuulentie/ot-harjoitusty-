@@ -2,21 +2,21 @@
 
 #### Rakenne
 
-Ohjelma koostuu 
+Ohjelma koostuu pääosin neljästä tiedostosta: App, GameLoop, Ui ja Level.
 
 
 
 ```mermaid
     classDiagram
 
-        Index "1" --> "1" GameLoop
-        Index "1" --> "1" Level
+        App "1" --> "1" GameLoop
+        App "1" --> "1" Level
         GameLoop "1" --> "1" Level
-        Index "1" --> "1" Ui
+        App "1" --> "1" Ui
         Ui "1" --> "1" GameLoop
         Ui "1" --> "1" Level
 
-        class Index{
+        class App{
             Level
             GameLoop
             Ui
@@ -39,16 +39,17 @@ Ohjelma koostuu
     }
     
 ```
-Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin. GameLoop tiedosto sisältää itse pelin loopin sekä pelin tapahtumien käsittelyn. <br> Level sisältää sovelluslogiikan ja Ui sisältää käyttöliittymän.
+Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin. GameLoop tiedosto sisältää itse pelin loopin sekä pelin tapahtumien käsittelyn, kun taas Level sisältää sovelluslogiikan ja Ui käyttöliittymän.
+
 ```mermaid
     sequenceDiagram
         
-        participant Index
+        participant App
         participant GameLoop
         participant Level
         Index ->> GameLoop: Start
-        GameLoop -->> Index: End
+        GameLoop -->> App: End
         Index ->> Level: Create level
-        Level -->> Index: None
+        Level -->> App: None
         
 ```
