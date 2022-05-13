@@ -1,6 +1,6 @@
 # Arkkitehtuurikuvaus
 
-#### Rakenne
+### Rakenne
 
 Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level. EventQueue hakee pelitapahtumat.
 
@@ -60,6 +60,6 @@ Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin.
         GameLoop -->> Ui: End screen
         Ui -->> Index: Quit game
         GameLoop ->> Level: Initialize snake, food and score
-     
+        Level -->> GameLoop: None
         
 ```
