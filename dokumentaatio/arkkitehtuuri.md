@@ -2,7 +2,7 @@
 
 #### Rakenne
 
-Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level.
+Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level. EventQueue hakee pelitapahtumat.
 
 
 
