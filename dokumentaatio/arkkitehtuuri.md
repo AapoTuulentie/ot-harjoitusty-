@@ -9,8 +9,8 @@ Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level. 
 ```mermaid
     classDiagram
 
-        Index "1" -->> "1" GameLoop
-        Index "1" -->> "1" Level
+        Index "1" -- "1" GameLoop
+        Index "1" -- "1" Level
         GameLoop "1" -- "1" Level
         Index "1" --> "1" Ui
         Ui "1" --> "1" GameLoop
