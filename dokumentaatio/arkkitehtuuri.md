@@ -15,6 +15,9 @@ Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level.
         Index "1" --> "1" Ui
         Ui "1" --> "1" GameLoop
         Ui "1" --> "1" Level
+        EventQueue "1" --> "1" GameLoop
+        Index "1" --> "1" EventQueue
+        
 
         class Index{
             Level
@@ -36,6 +39,10 @@ Ohjelma koostuu pääosin neljästä tiedostosta: Index, GameLoop, Ui ja Level.
     class Ui{
         GameLoop
         Level
+    }
+    
+    class EventQueue{
+       
     }
     
 ```
