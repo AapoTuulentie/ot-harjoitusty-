@@ -52,11 +52,14 @@ Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin.
     sequenceDiagram
         
         participant Index
+        participant Ui
         participant GameLoop
         participant Level
-        Index ->> GameLoop: Start
-        GameLoop -->> Index: End
-        Index ->> Level: Create level
-        Level -->> Index: None
+        Index ->> Ui: Create main menu
+        Ui ->> GameLoop: Start game
+        GameLoop -->> Ui: End screen
+        Ui -->> Index: Quit game
+        GameLoop ->> Level: Initialize snake, food and score
+     
         
 ```
