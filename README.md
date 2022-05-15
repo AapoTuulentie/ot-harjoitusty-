@@ -12,8 +12,12 @@ Sovellus on perinteinen matopeli, jossa mato kerää ruokaa kentältä ja kasvaa
 ###### [Viikko 5 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko5)
 ###### [Viikko 6 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko6)
 
-### Komentorivi
+### Asennus
+1. Asenna riippuvuudet komennolla <b>poetry install</b>
+2. Alusta tietokannat komennolla <b>poetry run invoke build</b>
+3. Käynnistä peli komennolla <b>poetry run invoke start</b>
 
-Ohjelman voi suorittaa komennolla <b>poetry run invoke start</b> <br>
-Ohjelman testit voidaan suorittaa komennolla <b>poetry run invoke test</b> <br>
-Ohjelman testikattavuuden saa suorittamalla komennon <b>poetry run invoke coverage-report</b>
+### Komentorivi
+- Testit voidaan suorittaa komennolla <b>poetry run invoke test</b>
+- Testikattavuuden saa komennolla <b>poetry run invoke coverage-report</b>
+- Koodin laadun tarkistus suoritetaan komennolla <b>poetry run invoke lint</b>
