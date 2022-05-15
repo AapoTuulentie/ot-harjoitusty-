@@ -11,6 +11,7 @@ Sovellus on perinteinen matopeli, jossa mato kerää ruokaa kentältä ja kasvaa
 ###### [Käyttöohje](https://github.com/AapoTuulentie/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 ###### [Viikko 5 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko5)
 ###### [Viikko 6 release](https://github.com/AapoTuulentie/ot-harjoitustyo/releases/tag/viikko6)
+###### [Final release](
 
 ### Asennus
 1. Asenna riippuvuudet komennolla <b>poetry install</b>
