@@ -63,3 +63,5 @@ Sovelluslogikka ja käyttöliittymä on pyritty erottamaan mahdollisimman hyvin.
         Level -->> GameLoop: None
         
 ```
+### Tietojen tallennus
+Pelaajan tulokset tallentuvat SQLite-tietokantaan. Huipputulos ilmoitetaan pelaajalle pelin alku- ja loppunäytöissä.
