@@ -3,6 +3,6 @@
 Peliä testataan automaattisilla unittest-testeillä.
 
 ### Testikattavuus
-Pelin haarautumakattavuus on 72%.
+Pelin haarautumakattavuus on 72%
 
-![](./kuvat/testi_kattavuus.png)
+![](./kuvat/Screenshot from 2022-05-15 23-46-37.png)
