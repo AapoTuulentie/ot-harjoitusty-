@@ -14,5 +14,6 @@
 10.5 SQL-tietokanta - 4h <br>
 11.5 GameLoop testit ja testikattavuus yli 80% - 2h <br>
 12.5 Dokumentaatio ja docstring - 2h
+15.5 Dokumentaatio - 2h
 <p>
-Yhteensä 48h 
+Yhteensä 50h 
