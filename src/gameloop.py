@@ -1,10 +1,11 @@
-import pygame, sys
+import sys
+import pygame
 
 
 class GameLoop:
-    
+
     """Luokka määrittelee pelin valikot sekä pelin kulun ja käärmeen ohjaamisen.
-    
+
     Attributes:
         display: peli-ikkunan koko
         clock: kello
@@ -84,11 +85,11 @@ class GameLoop:
         pygame.display.update()
 
         while True:
-            
+
             for event in self._event_queue.get():
-                
+
                 if event.type == pygame.KEYDOWN:
-                    
+
                     if event.key == pygame.K_ESCAPE:
                         return
 

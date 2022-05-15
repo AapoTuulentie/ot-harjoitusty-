@@ -5,7 +5,7 @@ import pygame
 class Ui:
 
     """Luokka käyttöliittymälle
-    
+
         Attributes:
             display: peli-ikkuna
             level: luokka level
@@ -19,7 +19,7 @@ class Ui:
         self._level = level
         self._gameloop = gameloop
         self._connection = connection
-    
+
     def main_menu(self):
 
         """Päävalikko, jossa on nappi pelin aloittamiselle
@@ -111,7 +111,7 @@ class Ui:
             self._display.blit(button_text, button_1)
             self._display.blit(button2_text, button_2)
             self._display.blit(highscore, [360, 510])
-            
+
 
             pygame.display.update()
 
@@ -155,7 +155,7 @@ class Ui:
                         sys.exit()
 
     def get_highscore(self):
-        
+
         """Hakee SQL-tietokannasta käyttäjän parhaan tuloksen
         """
 

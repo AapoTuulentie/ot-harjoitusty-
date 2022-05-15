@@ -5,7 +5,7 @@ import pygame
 class Level:
 
     """Luokka, jossa on kaikki yksityiskohtaisemmat pelin toiminnot
-    
+
         Attributes:
             snake_head: lähtökoordinaatti käärmeen päälle
             snake_body: lähtökoordinaatti käärmeen koko vartalolle
@@ -35,9 +35,9 @@ class Level:
 
     def spawn_food(self):
 
-        """Spawnaa uuden ruoan pelikentälle. Jos randomilla otettu koordinaatti sijaitsee käärmeen sisässä,
-        funktiota kutsutaan uudelleen.
-        
+        """Spawnaa uuden ruoan pelikentälle. Jos randomilla otettu koordinaatti 
+            sijaitsee käärmeen sisässä, funktiota kutsutaan uudelleen.
+
             Args:
                 x: ruoan x-koordinaatti
                 y: ruoan y-koordinaatti
@@ -55,9 +55,9 @@ class Level:
     def render(self):
 
         """Muodostaa käärmeen vartalon ja ruoan pelikentälle. Lisää myös pistelaskurin yläkulmaan.
-        
+
             Args:
-                font: fontti pistelaskurille 
+                font: fontti pistelaskurille
                 text: teksti pistelaskurille
             """
         pygame.init()
@@ -90,11 +90,11 @@ class Level:
         if self.snake_head == self.food:
 
             self.score += 1
-            
+
             if self.score % 5 == 0:
 
                 self.fps += 1
-            
+
             self.spawn_food()
 
         else:
@@ -121,9 +121,9 @@ class Level:
 
     def move_snake(self):
 
-        """Liikuttaa käärmettä x- ja y-suunnassa 
+        """Liikuttaa käärmettä x- ja y-suunnassa
         """
-        
+
         x = self.snake_head[0]
         y = self.snake_head[1]
 
@@ -144,6 +144,3 @@ class Level:
             x -= self.block
 
         self.snake_head = [x, y]
-
-    
-    
